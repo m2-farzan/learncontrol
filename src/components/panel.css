@@ -1,0 +1,49 @@
+.panel-panel {
+    border-radius: 0.5em;
+    box-shadow: 0.1em 0.1em 0.1em #000a;
+    height: fit-content;
+    margin: 0.5em 0;
+}
+
+.panel-body {
+    border-radius: 0em 0em 0.5em 0.5em;
+    background-color: white;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-header {
+    border-radius: 0.5em 0.5em 0em 0em;
+    background-color: var(--pc5);
+    color: white;
+    padding: 0.25em 1em;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.panel-insider-footer {
+    border-radius: 0em 0em 0.5em 0.5em;
+    background-color: var(--pc1);
+    padding: 0.25em 1em;
+    margin: -1em;
+    margin-top: 1em;
+}
+
+.panel-header:hover {
+    background-color: var(--pc6);
+}
+
+.panel-header-collapsed {
+    border-radius: 0.5em;
+}
+
+.panel-header-caption {
+    flex: auto;
+}
+
+.panel-header-button {
+    margin-top: 4px;
+    height: 16px;
+}

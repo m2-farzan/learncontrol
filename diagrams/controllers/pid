@@ -1,0 +1,10 @@
+\bXInput{INPUT}
+\bXComp[4]{COMP}{INPUT}
+\bXBloc[2]{CTRL}{$K_p + \frac{K_i}{s} + K_d s$}{COMP}
+\bXBloc[2]{PLANT}{$G(s)$}{CTRL}
+\bXOutput[4]{OUTPUT}{PLANT}
+\bXLink[$u$]{INPUT}{COMP}
+\bXLink[$e$]{COMP}{CTRL}
+\bXLink[$c$]{CTRL}{PLANT}
+\bXLink[$y$]{PLANT}{OUTPUT}
+\bXReturn{PLANT-OUTPUT}{COMP}{$y$}

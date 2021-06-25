@@ -1,0 +1,25 @@
+.paramtuner-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+
+.paramtuner-row:last-child {
+    margin-bottom: 0em;
+}
+
+.paramtuner-paramlabel {
+    width: 2em;
+    text-align: center;
+}
+
+.paramtuner-input {
+    width: 5em;
+    margin-left: 1em;
+    text-align: center;
+}
+
+.paramtuner-slider {
+    width: max-content;
+    flex: 1;
+}

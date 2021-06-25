@@ -1,0 +1,11 @@
+\bXInput{INPUT}
+\bXComp[4]{COMP}{INPUT}
+\bXBloc[2]{PLANT}{$G(s)$}{COMP}
+\bXOutput[4]{OUTPUT}{PLANT}
+\bXLink[$u$]{INPUT}{COMP}
+\bXLink[$e$]{COMP}{PLANT}
+\bXLink[$y$]{PLANT}{OUTPUT}
+\bXBranchy{PLANT-OUTPUT}{FB}
+\bXBlocr{FBGAIN}{$K$}{FB}
+\bXLinkyx{PLANT-OUTPUT}{FBGAIN}
+\bXLinkxy{FBGAIN}{COMP}

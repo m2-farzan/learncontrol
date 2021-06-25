@@ -1,0 +1,6 @@
+\bXInput{INPUT}
+\bXBloc[4]{PLANT}{$\frac{k}{s}$}{INPUT}
+\bXOutput[4]{OUTPUT}{PLANT}
+\bXLink[$u$]{INPUT}{PLANT}
+\bXLink[$y$]{PLANT}{OUTPUT}
+\bXLinkName[2]{PLANT}{\footnotesize $G(s)$}

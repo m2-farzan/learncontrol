@@ -1,0 +1,6 @@
+\bXInput{INPUT}
+\bXBloc[4]{PLANT}{$\frac{1}{mr^2s^2 + mgr}$}{INPUT}
+\bXOutput[4]{OUTPUT}{PLANT}
+\bXLink[$\tau$]{INPUT}{PLANT}
+\bXLink[$\theta$]{PLANT}{OUTPUT}
+\bXLinkName[2]{PLANT}{\footnotesize $G(s)$}

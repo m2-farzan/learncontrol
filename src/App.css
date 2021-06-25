@@ -1,0 +1,65 @@
+:root {
+    --pc1: rgb(199, 249, 204);
+    --pc2: rgb(128, 237, 153);
+    --pc3: rgb(87, 204, 153);
+    --pc4: rgb(56, 163, 165);
+    --pc5: rgb(34, 87, 122);
+    --pc6: rgb(19, 57, 82);
+}
+
+html, body, #root, .App {
+    height: 100%;
+}
+
+body {
+    background-color: var(--pc3);
+    font-family: Vazir, Tahoma;
+    font-size: small;
+}
+
+input {
+    border-radius: 0.5em;
+    padding: 0.2em 0.5em;
+    border-width: 1px;
+}
+
+textarea:focus, input:focus{
+    border-color: red;
+    outline: none;
+}
+
+.app-panels-horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.app-panels-vertical {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    margin: 0 1%;
+}
+
+.App-footer {
+    background-color: var(--pc4);
+    color: var(--pc1);
+    margin: 3em -8px 0px -8px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.App-footer > * {
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+.App-content {
+    flex: 1 0 auto;
+}

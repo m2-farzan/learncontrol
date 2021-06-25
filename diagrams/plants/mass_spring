@@ -1,0 +1,6 @@
+\bXInput{INPUT}
+\bXBloc[4]{PLANT}{$\frac{1}{ms^2 + cs + k}$}{INPUT}
+\bXOutput[4]{OUTPUT}{PLANT}
+\bXLink[$F$]{INPUT}{PLANT}
+\bXLink[$x$]{PLANT}{OUTPUT}
+\bXLinkName[2]{PLANT}{\footnotesize $G(s)$}
