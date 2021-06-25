@@ -33,7 +33,7 @@ input[type=range] {
     background: var(--pc2);
   }
   input[type=range]::-moz-range-track {
-    width: var(--slider-width);
+    /* width: var(--slider-width); */
     height: 8.4px;
     cursor: pointer;
     /* box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; */
