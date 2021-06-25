@@ -1,4 +1,4 @@
-const LANG = 'fa'; // static
+const LANG = process.env.REACT_APP_BUILD_LANG || 'en';
 
 const DIR = LANG === 'fa' ? 'rtl' : 'ltr';
 
@@ -50,4 +50,4 @@ const LOCAL = function(key) {
     }
 }
 
-export {LOCAL, DIR};
+export {LANG, DIR, LOCAL};
