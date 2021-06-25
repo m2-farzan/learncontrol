@@ -15,6 +15,8 @@ import ControllerZeroPolePanel from './components/controllerzeropolepanel';
 import plants from './core/plants.js'
 import controllers from './core/controllers.js'
 
+import {DIR} from './local';
+
 class App extends React.Component {
     state = {
         selected_plant: plants[0],
@@ -62,7 +64,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App" dir="rtl">
+            <div className="App" dir={DIR}>
                 <div className="App-content app-panels-horizontal">
                     <div className="app-panels-vertical">
                         <PlantSelectPanel selected_plant={this.state.selected_plant} on_selection_change={this.on_plant_selection_change.bind(this)}/>
@@ -94,10 +96,14 @@ class App extends React.Component {
                     </div>
                 </div>
                 <footer className="App-footer">
-                    <img height="50" src={require('./img/iust.svg').default}/>
                     <a href="https://github.com/m2-farzan/learncontrol">
                         <img height="30" style={{marginLeft: 9, marginTop: 3, marginBottom: -3}} src={require('./img/github.svg').default}/>
                     </a>
+                    <img height="50" src={require('./img/iust.svg').default}/>
+                    <div className="App-language-list">
+                        <a href="/learncontrol/en" className="App-language-item">English</a>
+                        <a href="/learncontrol/fa" className="App-language-item">فارسی</a>
+                    </div>
                 </footer>
             </div>
         );

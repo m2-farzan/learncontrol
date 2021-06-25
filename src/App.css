@@ -42,17 +42,16 @@ textarea:focus, input:focus{
 
 .App-footer {
     background-color: var(--pc4);
-    color: var(--pc1);
+    color: white;
     margin: 3em -8px 0px -8px;
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
+    padding: 0 30% 0 30%;
 }
 
 .App-footer > * {
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto;
 }
 
 .App {
@@ -62,4 +61,16 @@ textarea:focus, input:focus{
 
 .App-content {
     flex: 1 0 auto;
+}
+
+.App-language-list {
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+}
+
+.App-language-item {
+    margin: auto 0.5em;
+    color: white;
+    text-decoration: none;
 }

@@ -1,9 +1,11 @@
 import {closed_loop_tf, chain_tfs} from './tf_ops';
 
+import {LOCAL} from '../local';
+
 const controllers = [
     {
         key: 'p',
-        name: 'تناسبی (P)',
+        name: LOCAL('Propotional'),
         info: 'feedback: 1, C: kp',
         params: [
             {key: 'kp', name: 'K_p', min: 0, max: 20, default: 1},
@@ -13,7 +15,7 @@ const controllers = [
     },
     {
         key: 'pi',
-        name: 'PI',
+        name: LOCAL('PI'),
         info: 'feedback: 1, C: kp + ki/s',
         params: [
             {key: 'kp', name: 'K_p', min: 0, max: 20, default: 1},
@@ -24,7 +26,7 @@ const controllers = [
     },
     {
         key: 'pid',
-        name: 'PID',
+        name: LOCAL('PID'),
         info: 'feedback: 1, C: kp + ki/s + kds',
         params: [
             {key: 'kp', name: 'K_p', min: 0, max: 20, default: 1},
@@ -36,7 +38,7 @@ const controllers = [
     },
     {
         key: 'lead',
-        name: 'پیش‌فاز',
+        name: LOCAL('Lead'),
         info: 'feedback: 1, C: kc * (s + 1/T) / (s + 1/aT)',
         params: [
             {key: 'kc', name: 'K_c', min: 0, max: 20, default: 1},
@@ -48,7 +50,7 @@ const controllers = [
     },
     {
         key: 'lag',
-        name: 'پس‌فاز',
+        name: LOCAL('Lag'),
         info: 'feedback: 1, C: kc * (s + 1/T) / (s + 1/bT)',
         params: [
             {key: 'kc', name: 'K_c', min: 0, max: 20, default: 1},
@@ -60,7 +62,7 @@ const controllers = [
     },
     {
         key: 'leadlag',
-        name: 'پیش‌فاز-پس‌فاز',
+        name: LOCAL('Lead-lag'),
         info: 'feedback: 1, C: C_lead + C_lag',
         params: [
             {key: 'kc', name: 'K_c', min: 0, max: 20, default: 1},
@@ -91,7 +93,7 @@ const controllers = [
     },
     {
         key: 'gain',
-        name: 'فیدبک غیر واحد',
+        name: LOCAL('Non-unity Feedback'),
         info: 'feedback: k',
         params: [
             {key: 'k', name: 'K', min: 0, max: 10, default: 1},

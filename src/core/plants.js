@@ -1,9 +1,11 @@
 import {poly_mul} from './tf_ops';
 
+import {LOCAL} from '../local';
+
 const plants = [
     {
         key: 'first_order',
-        name: 'مرتبه یک',
+        name: LOCAL('First Order'),
         info: 'a / (s+a)',
         params: [
             {key: 'a', name: 'a', min: -0.5, max: 10, default: 3},
@@ -12,7 +14,7 @@ const plants = [
     },
     {
         key: 'first_order_with_gain',
-        name: 'مرتبه یک گین دار',
+        name: LOCAL('First Order with Gain'),
         info: 'k / (s+a)',
         params: [
             {key: 'a', name: 'a', min: -0.5, max: 5, default: 3},
@@ -22,7 +24,7 @@ const plants = [
     },
     {
         key: 'first_order_with_zero',
-        name: 'مرتبه یک صفر دار',
+        name: LOCAL('First Order with Zero'),
         info: '(s+b) / (s+a)',
         params: [
             {key: 'b', name: 'b', min: 0, max: 10, default: 3},
@@ -32,7 +34,7 @@ const plants = [
     },
     {
         key: 'integrator',
-        name: 'انتگرال‌گیر',
+        name: LOCAL('Integrator'),
         info: 'k / s',
         params: [
             {key: 'k', name: 'k', min: 0, max: 2, default: 1},
@@ -41,7 +43,7 @@ const plants = [
     },
     {
         key: 'second_order',
-        name: 'مرتبه دو',
+        name: LOCAL('Second Order'),
         info: 'k*omega_n^2 / s^2 + 2*zeta*omega_n*s + omega_n^2',
         params: [
             {key: 'omega_n', name: '\\omega_n', min: 0, max: 10, default: 3},
@@ -52,7 +54,7 @@ const plants = [
     },
     {
         key: 'second_order_with_zero',
-        name: 'مرتبه دو صفر دار',
+        name: LOCAL('Second Order with Zero'),
         info: '(s + b) / s^2 + 2*zeta*omega_n*s + omega_n^2',
         params: [
             {key: 'omega_n', name: '\\omega_n', min: 0, max: 10, default: 3},
@@ -63,7 +65,7 @@ const plants = [
     },
     {
         key: 'third_order',
-        name: 'مرتبه سه',
+        name: LOCAL('Third Order'),
         info: 'k*alpha*omega_n^2 / [(s+a) * (s^2 + 2*zeta*omega_n*s + omega_n^2)]',
         params: [
             {key: 'alpha', name: '\\alpha', min: 0, max: 10, default: 6},
@@ -76,7 +78,7 @@ const plants = [
     },
     {
         key: 'mass_spring',
-        name: 'جرم و فنر',
+        name: LOCAL('Mass-spring'),
         info: 'mx.. + cx. + kx = u',
         params: [
             {key: 'm', name: 'm', min: 0, max: 10, default: 6},
@@ -87,7 +89,7 @@ const plants = [
     },
     {
         key: 'pendulum',
-        name: 'پاندول (تقریب خطی)',
+        name: LOCAL('Pendulum (Linear Approx.)'),
         info: 'mr^2 theta.. + mgr theta = u',
         params: [
             {key: 'm', name: 'm', min: 0, max: 10, default: 6},
@@ -98,7 +100,7 @@ const plants = [
     },
     {
         key: 'reverse_pendulum',
-        name: 'پاندول معکوس (تقریب خطی)',
+        name: LOCAL('Reverse Pendulum (Linear Approx.)'),
         info: 'mr^2 theta.. - mgr theta = u',
         params: [
             {key: 'm', name: 'm', min: 0, max: 10, default: 6},

@@ -2,6 +2,8 @@ import React from 'react';
 import Canvas from './canvas';
 import {drawAxis, drawXTicks, drawYTicks, drawGrid, drawXLabel, drawYLabel} from './plottools';
 
+import {LOCAL} from '../local';
+
 const dt = 0.05;
 const tmax = 10;
 const n_steps = Math.floor(tmax / dt);
@@ -122,30 +124,30 @@ class StepResponseCanvas extends React.Component {
                 <Canvas width="800" height="300" draw={this.draw.bind(this)}/>
                 <table className="panel-insider-footer">
                     <tr style={{fontSize: 10}}>
-                        <td>بیشترین فراجهش:
-                            <a style={{marginRight: 5}} dir="ltr">
+                        <td>{LOCAL('Maximum Overshoot:')}
+                            <a style={{marginRight: 5, marginLeft: 5}} dir="ltr">
                                 {maximum_overshoot && maximum_overshoot > 0.0 ? maximum_overshoot.toFixed(1) + ' %' : '-'}
                             </a>
                         </td>
-                        <td>زمان صعود:
-                            <a style={{marginRight: 5}} dir="ltr">
+                        <td>{LOCAL('Rise Time:')}
+                            <a style={{marginRight: 5, marginLeft: 5}} dir="ltr">
                                 {risetime && risetime > 0.0 ? risetime.toFixed(2) + ' s' : '-'}
                             </a>
                         </td>
-                        <td>زمان نشست:
-                            <a style={{marginRight: 5}} dir="ltr">
+                        <td>{LOCAL('Settling Time:')}
+                            <a style={{marginRight: 5, marginLeft: 5}} dir="ltr">
                                 {settling_time && settling_time > 0.0 ? settling_time.toFixed(2) + ' s' : '-'}
                             </a>
                         </td>
                         {
                         is_convergent ? (
-                            <td>خطای حالت ماندگار:
-                                <a style={{marginRight: 5}} dir="ltr">
+                            <td>{LOCAL('Steady State Error:')}
+                                <a style={{marginRight: 5, marginLeft: 5}} dir="ltr">
                                     {(1.0 - ss_response).toFixed(2)}
                                 </a>
                             </td>
                         ) : (
-                            <td>ناپایدار</td>
+                            <td>{LOCAL('Unstable')}</td>
                         )
                         }
                     </tr>
