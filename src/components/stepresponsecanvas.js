@@ -4,7 +4,7 @@ import {drawAxis, drawXTicks, drawYTicks, drawGrid, drawXLabel, drawYLabel} from
 
 import {LOCAL} from '../local';
 
-const dt = 0.05;
+const dt = 0.025;
 const tmax = 10;
 const n_steps = Math.floor(tmax / dt);
 
