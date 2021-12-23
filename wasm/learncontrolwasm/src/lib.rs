@@ -3,7 +3,7 @@
 use wasm_bindgen::prelude::*;
 use ndarray::prelude::*;
 use ndarray_stats::QuantileExt;
-use rustnomial::{Polynomial};
+use nalgebra::DMatrix;
 use num::complex::{Complex};
 
 // #[wasm_bindgen]
@@ -200,33 +200,29 @@ fn normalize_num_dem(num: Vec<f64>, dem: Vec<f64>) -> (usize, Array1::<f64>, Arr
 #[wasm_bindgen]
 pub fn roots(coeffs: Vec<f64>) -> Vec<f64>
 {
-    let poly = Polynomial::<f64>::new(coeffs);
-
-    return match poly.roots() {
-        rustnomial::Roots::OneRealRoot(a) => vec![a, 0.0],
-        rustnomial::Roots::TwoRealRoots(a, b) => vec![a, 0.0, b, 0.0],
-        rustnomial::Roots::ThreeRealRoots(a, b, c) => vec![a, 0.0, b, 0.0, c, 0.0],
-        rustnomial::Roots::OnlyRealRoots(v) | rustnomial::Roots::ManyRealRoots(v) => {
-            let mut r = vec![];
-            for v_ in v {
-                r.push(v_);
-                r.push(0.0);
-            }
-            return r;
-        },
-        rustnomial::Roots::OneComplexRoot(a) => vec![a.re, a.im],
-        rustnomial::Roots::TwoComplexRoots(a, b) => vec![a.re, a.im, b.re, b.im],
-        rustnomial::Roots::ThreeComplexRoots(a, b, c) => vec![a.re, a.im, b.re, b.im, c.re, c.im],
-        rustnomial::Roots::ManyComplexRoots(v) => {
-            let mut r = vec![];
-            for v_ in v {
-                r.push(v_.re);
-                r.push(v_.im);
-            }
-            return r;
-        },
-        _ => vec![],
-    };
+    // coeffs format: 3x^2+4x+1 --> [3, 4, 1]
+    let n = coeffs.len() - 1; // Polynomial degree
+    if n < 1 {
+        return vec![];
+    }
+    let mut C = vec![0.0; n]; // Companion Matrix (c0 + c1*x + c2*x^2 +... + 1*x^n)
+    for i in 0..n {
+        C[i] = coeffs[n-i] / coeffs[0];
+    }
+    let mut M = DMatrix::from_element(n, n, 0.0);
+    for i in 0..n-1 {
+        M[(i+1, i)] = 1.0;
+    }
+    for i in 0..n {
+        M[(i, n-1)] = -C[i];
+    }
+    let eigs = M.complex_eigenvalues();
+    let mut r = vec![0.0; 2*n];
+    for i in 0..eigs.len() {
+        r[2*i] = eigs[i].re;
+        r[2*i + 1] = eigs[i].im;
+    }
+    return r;
 }
 
 #[wasm_bindgen]

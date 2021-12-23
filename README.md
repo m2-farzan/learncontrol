@@ -8,7 +8,6 @@ Project structure notes:
 
 TODO:
 
-- Fix root-finding algo
 - Add noise
 - Allow more inputs (rect, ramp, etc.)
 - Add open-loop controller

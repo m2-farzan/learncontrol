@@ -10,5 +10,5 @@ crate-type = ["cdylib"]
 ndarray = "0.13.0"
 ndarray-stats = "0.3.0"
 wasm-bindgen = "0.2"
-rustnomial = "0.1.0"
-num = ""
+nalgebra = "0.29.0"
+num = "0.4.0"
